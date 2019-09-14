@@ -3,16 +3,17 @@
     "extends": [
         "tslint:latest",
         "tslint-react",
-        "tslint-react-hooks",
-        "tslint-config-prettier"
+        "tslint-config-prettier",
+        "tslint-react-hooks"
     ],
     "rules": {
-        "prettier": [true, { "singleQuote": true, "semi": true }],
+        "prettier": [true, { "singleQuote": true, "semi": true, "trailingComma": "es5" }],
         "quotemark": [true, "single", "jsx-double", "avoid-template", "avoid-escape"],
         "jsx-boolean-value": ["never"],
         "variable-name": [true, "allow-leading-underscore", "allow-pascal-case"],
         "jsx-no-lambda": [false],
         "react-hooks-nesting": "error",
-        "object-literal-sort-keys": false
+        "object-literal-sort-keys": false,
+        "no-submodule-imports": [true, "semantic-ui-less/semantic.less"]
     }
 }

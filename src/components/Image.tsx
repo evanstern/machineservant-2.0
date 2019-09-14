@@ -1,6 +1,11 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+
+interface IProps {
+  name: string;
+}
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,14 +18,14 @@ import Img from 'gatsby-image';
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const Image = ({ name }) => {
+export const Image: React.FC<IProps> = ({ name }) => {
   const data = useStaticQuery(graphql`
     query {
       allImageSharp {
         edges {
           node {
             fluid {
-              ...GatsbyImageSharpFluid,
+              ...GatsbyImageSharpFluid
               originalName
             }
           }
@@ -29,7 +34,10 @@ const Image = ({ name }) => {
     }
   `);
 
-  const image = data.allImageSharp.edges.find(edge => edge.node.fluid.originalName === name);
+  const image = data.allImageSharp.edges.find(
+    // @ts-ignore
+    edge => edge.node.fluid.originalName === name
+  );
 
   if (!image) {
     return null;
@@ -37,5 +45,3 @@ const Image = ({ name }) => {
 
   return <Img fluid={image.node.fluid} />;
 };
-
-export default Image;
