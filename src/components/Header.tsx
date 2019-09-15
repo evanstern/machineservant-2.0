@@ -9,7 +9,6 @@ interface IProps {
 
 const StyledHeader = styled.header`
   background: black;
-  margin-bottom: 1.45rem;
 
   .header-wrapper {
     margin: 0 auto;
