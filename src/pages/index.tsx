@@ -34,6 +34,27 @@ const BlackText = styled.span`
   color: rgb(0, 0, 0, 0.87);
 `;
 
+const ScreenWrapper = styled.div`
+  position: relative;
+  height: 170px;
+  width: 282px;
+  margin: 0 auto;
+`;
+
+const BlankScreen = styled.div`
+  position: absolute;
+  top: 15px;
+  left: 38px;
+  height: 128px;
+  width: 205px;
+  background-color: white;
+
+  .gatsby-image-wrapper {
+    margin: 0 auto;
+    width: 128px;
+  }
+`;
+
 const IndexPage: React.FC = () => (
   <Layout showHeaderImage>
     <SEO title="Home" />
@@ -42,7 +63,12 @@ const IndexPage: React.FC = () => (
         <Grid container stackable>
           <Grid.Row columns={3}>
             <Grid.Column>
-              <Image name="laptop.png" />
+              <ScreenWrapper>
+                <Image name="laptop.png" />
+                <BlankScreen>
+                  <Image name="machineservant-logo.png" />
+                </BlankScreen>
+              </ScreenWrapper>
             </Grid.Column>
             <Grid.Column width={10} verticalAlign="middle">
               <Header as="h1" textAlign="center">

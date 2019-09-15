@@ -36,8 +36,8 @@ const BackgroundSection: React.FC<IProps> = ({ className, children }) => {
 };
 
 export const Background = styled(BackgroundSection)`
-  height: 100vh;
   width: 100%;
+  min-height: 100vh;
 
   background-position: bottom center;
   background-repeat: repeat-y;
