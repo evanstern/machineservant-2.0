@@ -34,6 +34,19 @@ const BlackText = styled.span`
   color: rgb(0, 0, 0, 0.87);
 `;
 
+const CalloutContent = styled.div`
+  padding: 0 1.45rem;
+  text-align: center;
+
+  .gatsby-image-wrapper {
+    margin: 0 auto;
+  }
+`;
+
+const CalloutText = styled(Header)`
+  font-weight: 500 !important;
+`;
+
 const ScreenWrapper = styled.div`
   position: relative;
   height: 170px;
@@ -85,16 +98,43 @@ const IndexPage: React.FC = () => (
         </Grid>
       </div>
     </MainBlurb>
-    <Grid container stackable>
-      <Grid.Row columns={3} verticalAlign="middle">
+    <Grid container stackable divided>
+      <Grid.Row columns={3}>
         <Grid.Column>
-          <TransparentSegment>Foo</TransparentSegment>
+          <CalloutContent>
+            <Image name="ohio.png" />
+            <Header as="h3" textAlign="center">
+              We are located in Akron Ohio
+            </Header>
+            <CalloutText as="h3">
+              We love northeast Ohio, but our abilities know no bounds! We can
+              work with you remotely any time, any place.
+            </CalloutText>
+          </CalloutContent>
         </Grid.Column>
         <Grid.Column>
-          <TransparentSegment>Foo</TransparentSegment>
+          <CalloutContent>
+            <Image name="gears.png" />
+            <Header as="h3" textAlign="center">
+              What we do
+            </Header>
+            <CalloutText as="h3">
+              We design, build, and manage your web site or web application. Our
+              team of experts works with you one on one to bring your vision to
+              reality.
+            </CalloutText>
+          </CalloutContent>
         </Grid.Column>
         <Grid.Column>
-          <TransparentSegment>Foo</TransparentSegment>
+          <CalloutContent>
+            <Image name="contact.png" />
+            <Header as="h3" textAlign="center">
+              Sound good?
+            </Header>
+            <CalloutText as="h3">
+              Reach out to us and get a free estimate!
+            </CalloutText>
+          </CalloutContent>
         </Grid.Column>
       </Grid.Row>
     </Grid>
