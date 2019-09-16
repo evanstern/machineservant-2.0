@@ -28,12 +28,13 @@ const ContactPage: React.FC = () => {
         </Grid>
       </MainBlurb>
       <Form
-        name="contact"
-        method="post"
+        action="/"
+        method="POST"
         netlify-honeypot="bot-field"
         data-netlify="true"
       >
         <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
         <Form.Field
           required
           label="Your name"
