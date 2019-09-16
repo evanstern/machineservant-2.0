@@ -35,7 +35,6 @@ export const Image: React.FC<IProps> = ({ name }) => {
   `);
 
   const image = data.allImageSharp.edges.find(
-    // @ts-ignore
     edge => edge.node.fluid.originalName === name
   );
 

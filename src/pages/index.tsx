@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { Grid, Header, Segment } from 'semantic-ui-react';
+import { Link } from 'gatsby';
+import { Grid, Header } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 import { Image } from '../components/Image';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
-
-const TransparentSegment = styled(Segment)`
-  background: transparent !important;
-`;
 
 const MainBlurb = styled.div`
   display: flex;
@@ -133,6 +130,9 @@ const IndexPage: React.FC = () => (
             </Header>
             <CalloutText as="h3">
               Reach out to us and get a free estimate!
+            </CalloutText>
+            <CalloutText as="h3">
+              <Link to="/contact">Contact Us</Link>
             </CalloutText>
           </CalloutContent>
         </Grid.Column>

@@ -28,7 +28,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-tslint`,
+    `gatsby-plugin-eslint`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-less`,
     `gatsby-background-image`,
