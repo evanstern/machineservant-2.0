@@ -26,6 +26,10 @@ const CalloutText = styled(Header)`
   font-weight: 500 !important;
 `;
 
+const CalloutLabel = styled(Header)`
+  text-transform: uppercase !important;
+`;
+
 const ScreenWrapper = styled.div`
   position: relative;
   height: 170px;
@@ -80,9 +84,9 @@ const IndexPage: React.FC = () => (
         <Grid.Column>
           <CalloutContent>
             <Image name="ohio.png" />
-            <Header as="h3" textAlign="center">
-              We are located in Akron Ohio
-            </Header>
+            <CalloutLabel as="h3" textAlign="center">
+              Located in Akron Ohio
+            </CalloutLabel>
             <CalloutText as="h3">
               We love northeast Ohio, but our abilities know no bounds! We can
               work with you remotely any time, any place.
@@ -92,22 +96,22 @@ const IndexPage: React.FC = () => (
         <Grid.Column>
           <CalloutContent>
             <Image name="gears.png" />
-            <Header as="h3" textAlign="center">
+            <CalloutLabel as="h3" textAlign="center">
               What we do
-            </Header>
+            </CalloutLabel>
             <CalloutText as="h3">
               We design, build, and manage your web site or web application. Our
-              team of experts works with you one on one to bring your vision to
-              reality.
+              team of experts will work with you one on one to bring your vision
+              to reality.
             </CalloutText>
           </CalloutContent>
         </Grid.Column>
         <Grid.Column>
           <CalloutContent>
             <Image name="contact.png" />
-            <Header as="h3" textAlign="center">
+            <CalloutLabel as="h3" textAlign="center">
               Sound good?
-            </Header>
+            </CalloutLabel>
             <CalloutText as="h3">
               Reach out to us and get a free estimate!
             </CalloutText>
