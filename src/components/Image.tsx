@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
 
 interface IProps {
   name: string;
@@ -18,8 +18,20 @@ interface IProps {
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
+interface IEdge {
+  node: {
+    fluid: FluidObject & { originalName: string };
+  };
+}
+
+interface IAllImageSharp {
+  allImageSharp: {
+    edges: IEdge[];
+  };
+}
+
 export const Image: React.FC<IProps> = ({ name }) => {
-  const data = useStaticQuery(graphql`
+  const data: IAllImageSharp = useStaticQuery(graphql`
     query {
       allImageSharp {
         edges {

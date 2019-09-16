@@ -21,8 +21,8 @@ module.exports = {
         name: `MachineServant`,
         short_name: `MachineServant`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#c8c8c8`,
+        theme_color: `#c8c8c8`,
         display: `minimal-ui`,
         icon: `src/images/machineservant-logo.png`, // This path is relative to the root of the site.
       },
