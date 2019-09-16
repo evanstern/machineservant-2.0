@@ -28,6 +28,7 @@ const ContactPage: React.FC = () => {
         </Grid>
       </MainBlurb>
       <Form
+        name="contact"
         action="/"
         method="POST"
         netlify-honeypot="bot-field"
@@ -41,6 +42,13 @@ const ContactPage: React.FC = () => {
           control="input"
           type="text"
           name="name"
+        />
+        <Form.Field
+          required
+          label="Email"
+          control="input"
+          type="email"
+          name="email"
         />
         <Form.Field
           label="Company name"
