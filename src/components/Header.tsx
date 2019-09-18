@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Link } from 'gatsby';
+import { Menu, Responsive } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 interface IProps {
@@ -8,17 +9,7 @@ interface IProps {
 }
 
 const StyledHeader = styled.header`
-  background: black;
-
-  .header-wrapper {
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 1.45rem 1.0875rem;
-
-    h1 {
-      margin: 0;
-    }
-  }
+  background: #1b1c1d;
 `;
 
 const StyledLink = styled(Link)`
@@ -30,12 +21,39 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledMenu = styled(Menu)`
+  padding: 1.45rem 1.0875rem;
+  max-width: 960px;
+  margin: 0 auto !important;
+  padding: 0 !important;
+`;
+
+const StyledSubMenu = styled(StyledMenu)`
+  margin: 0 !important;
+  width: 100% !important;
+  border-radius: 0px !important;
+`;
+
 export const Header: React.FunctionComponent<IProps> = ({ siteTitle = '' }) => (
-  <StyledHeader>
-    <div className="header-wrapper">
-      <h1>
-        <StyledLink to="/">{siteTitle}</StyledLink>
-      </h1>
-    </div>
-  </StyledHeader>
+  <>
+    <StyledHeader>
+      <StyledMenu inverted borderless>
+        <Menu.Item>
+          <h1>
+            <StyledLink to="/">{siteTitle}</StyledLink>
+          </h1>
+        </Menu.Item>
+        <Responsive as={Menu.Menu} position="right" minWidth={768}>
+          <Menu.Item>
+            <Link to="/blog">Blog</Link>
+          </Menu.Item>
+        </Responsive>
+      </StyledMenu>
+    </StyledHeader>
+    <Responsive as={StyledSubMenu} maxWidth={767} inverted vertical>
+      <Menu.Item>
+        <Link to="/blog">Blog</Link>
+      </Menu.Item>
+    </Responsive>
+  </>
 );
