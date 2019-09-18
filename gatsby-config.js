@@ -10,7 +10,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/content/blog`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -24,7 +31,7 @@ module.exports = {
         background_color: `#c8c8c8`,
         theme_color: `#c8c8c8`,
         display: `minimal-ui`,
-        icon: `src/images/machineservant-logo.png`, // This path is relative to the root of the site.
+        icon: `content/images/machineservant-logo.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-typescript`,
@@ -32,6 +39,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-less`,
     `gatsby-background-image`,
+    `gatsby-transformer-remark`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
