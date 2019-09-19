@@ -1,12 +1,18 @@
 import React from 'react';
 
 import { graphql, Link } from 'gatsby';
-import { Grid, Header } from 'semantic-ui-react';
+import Img, { FluidObject } from 'gatsby-image';
+import { Container, Grid, Header, Segment } from 'semantic-ui-react';
+import styled from 'styled-components';
 
 import { Image } from '../components/Image';
 import { Layout } from '../components/Layout';
 import { MainBlurb } from '../components/MainBlurb';
 import { SEO } from '../components/SEO';
+
+const BlogPostPreview = styled(Segment)`
+  background-color: rgb(255, 255, 255, 0.7) !important;
+`;
 
 interface IEdges {
   node: {
@@ -16,6 +22,11 @@ interface IEdges {
     frontmatter: {
       date: string;
       title: string;
+      featuredImage: {
+        childImageSharp: {
+          fluid: FluidObject;
+        };
+      };
     };
     excerpt: string;
   };
@@ -50,21 +61,32 @@ const Blog: React.FC<IProps> = ({ data }) => {
           </Grid.Row>
         </Grid>
       </MainBlurb>
-      {posts.map(({ node }) => {
-        const { excerpt } = node;
-        const { date, title } = node.frontmatter;
-        const { slug } = node.fields;
+      <Container>
+        {posts.map(({ node }) => {
+          const { excerpt } = node;
+          const { date, title, featuredImage } = node.frontmatter;
+          const { slug } = node.fields;
 
-        return (
-          <article key={slug}>
-            <Header as="h2">
-              <Link to={`/blog/${slug}`}>{title}</Link>
-            </Header>
-            <p>{date}</p>
-            <p>{excerpt}</p>
-          </article>
-        );
-      })}
+          return (
+            <BlogPostPreview key={slug}>
+              <Grid container stackable>
+                <Grid.Row columns={2}>
+                  <Grid.Column width={4}>
+                    <Img fluid={featuredImage.childImageSharp.fluid} />
+                  </Grid.Column>
+                  <Grid.Column width={12} verticalAlign="middle">
+                    <Header as="h2">
+                      <Link to={`/blog/${slug}`}>{title}</Link>
+                    </Header>
+                    <p>{date}</p>
+                    <p>{excerpt}</p>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </BlogPostPreview>
+          );
+        })}
+      </Container>
     </Layout>
   );
 };
@@ -82,6 +104,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt(pruneLength: 160)
         }

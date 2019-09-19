@@ -11,7 +11,10 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '../../theme.config$': path.join(__dirname, 'src/semantic/theme.config'),
+        '../../theme.config$': path.join(
+          __dirname,
+          'src/semantic/theme.config'
+        ),
       },
     },
   });
@@ -32,7 +35,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug
             }
             frontmatter {
-              path
               date
               title
             }
