@@ -38,6 +38,7 @@ const ScreenWrapper = styled.div`
   height: 170px;
   width: 282px;
   margin: 0 auto;
+  margin-left: 0;
 `;
 
 const BlankScreen = styled.div`
@@ -63,8 +64,8 @@ const IndexPage: React.FC = () => (
     <SEO title="Home" />
     <MainBlurb>
       <Grid container stackable>
-        <Grid.Row columns={3}>
-          <Grid.Column>
+        <Grid.Row columns={2}>
+          <Grid.Column width={6}>
             <ScreenWrapper>
               <Image name="laptop.png" />
               <BlankScreen>

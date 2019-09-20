@@ -46,20 +46,9 @@ const Blog: React.FC<IProps> = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <MainBlurb>
-        <Grid container stackable>
-          <Grid.Row columns={3}>
-            <Grid.Column>
-              <Image name="gears-transparent.png" />
-            </Grid.Column>
-            <Grid.Column width={10} verticalAlign="middle" textAlign="center">
-              <Header as="h1">Blog</Header>
-              <Header as="h2">
-                News from MachineServant and technical musings.
-              </Header>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+      <MainBlurb imageName="gears-transparent.png">
+        <Header as="h1">Blog</Header>
+        <Header as="h2">News from MachineServant and technical musings.</Header>
       </MainBlurb>
       <Container>
         {posts.map(({ node }) => {

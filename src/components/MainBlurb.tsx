@@ -1,5 +1,9 @@
 import React from 'react';
+
+import { Grid } from 'semantic-ui-react';
 import styled from 'styled-components';
+
+import { Image } from './Image';
 
 const Main = styled.div`
   display: flex;
@@ -23,9 +27,33 @@ const Main = styled.div`
 interface IProps {
   className?: string;
   children: React.ReactNode;
+  imageName?: string;
 }
 
-export const MainBlurb: React.FC<IProps> = ({ className, children }) => {
+export const MainBlurb: React.FC<IProps> = ({
+  className,
+  children,
+  imageName,
+}) => {
+  if (imageName) {
+    return (
+      <Main className={className}>
+        <div className="inner-blurb">
+          <Grid container stackable>
+            <Grid.Row columns={2}>
+              <Grid.Column width={6}>
+                <Image name={imageName} />
+              </Grid.Column>
+              <Grid.Column width={10} verticalAlign="middle">
+                {children}
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </div>
+      </Main>
+    );
+  }
+
   return (
     <Main className={className}>
       <div className="inner-blurb">{children}</div>

@@ -11,21 +11,12 @@ const ContactPage: React.FC = () => {
   return (
     <Layout>
       <SEO title="Contact" />
-      <MainBlurb>
-        <Grid container stackable>
-          <Grid.Row columns={3}>
-            <Grid.Column>
-              <Image name="contact.png" />
-            </Grid.Column>
-            <Grid.Column width={10} verticalAlign="middle" textAlign="center">
-              <Header as="h1">We would love to hear from you!</Header>
-              <Header as="h2">
-                Please contact us by filling out the form below and we will
-                respond as quickly as we can.
-              </Header>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+      <MainBlurb imageName="contact.png">
+        <Header as="h1">We would love to hear from you!</Header>
+        <Header as="h2">
+          Please contact us by filling out the form below and we will respond as
+          quickly as we can.
+        </Header>
       </MainBlurb>
       <Container>
         <Form
