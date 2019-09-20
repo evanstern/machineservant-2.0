@@ -10,6 +10,10 @@ import { MainBlurb } from '../components/MainBlurb';
 
 const BlogPostContainer = styled(Container)`
   margin: 1.0875rem 0;
+
+  p {
+    font-size: 1.3em;
+  }
 `;
 
 interface IProps {
