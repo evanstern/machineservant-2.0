@@ -14,7 +14,9 @@ const BlackText = styled.span`
 `;
 
 const CalloutContent = styled(Segment)`
-  padding: 0 1.45rem;
+  flex: 1;
+  flex-basis: 0;
+  padding: 2em !important;
   text-align: center;
   background-color: rgb(223, 223, 243, 0.45) !important;
 
@@ -52,6 +54,10 @@ const BlankScreen = styled.div`
   }
 `;
 
+const FlexColumn = styled(Grid.Column)`
+  display: flex !important;
+`;
+
 const IndexPage: React.FC = () => (
   <Layout showHeaderImage>
     <SEO title="Home" />
@@ -82,7 +88,7 @@ const IndexPage: React.FC = () => (
     </MainBlurb>
     <Grid container stackable divided>
       <Grid.Row columns={3}>
-        <Grid.Column>
+        <FlexColumn>
           <CalloutContent>
             <Image name="ohio.png" />
             <CalloutLabel as="h3" textAlign="center">
@@ -93,8 +99,8 @@ const IndexPage: React.FC = () => (
               work with you remotely any time, any place.
             </CalloutText>
           </CalloutContent>
-        </Grid.Column>
-        <Grid.Column>
+        </FlexColumn>
+        <FlexColumn>
           <CalloutContent>
             <Image name="gears.png" />
             <CalloutLabel as="h3" textAlign="center">
@@ -106,8 +112,8 @@ const IndexPage: React.FC = () => (
               to reality.
             </CalloutText>
           </CalloutContent>
-        </Grid.Column>
-        <Grid.Column>
+        </FlexColumn>
+        <FlexColumn>
           <CalloutContent>
             <Image name="contact.png" />
             <CalloutLabel as="h3" textAlign="center">
@@ -120,7 +126,7 @@ const IndexPage: React.FC = () => (
               <Link to="/contact">Contact Us</Link>
             </CalloutText>
           </CalloutContent>
-        </Grid.Column>
+        </FlexColumn>
       </Grid.Row>
     </Grid>
   </Layout>
