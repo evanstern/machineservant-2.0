@@ -50,10 +50,5 @@ export const Header: React.FunctionComponent<IProps> = ({ siteTitle = '' }) => (
         </Responsive>
       </StyledMenu>
     </StyledHeader>
-    <Responsive as={StyledSubMenu} maxWidth={767} inverted vertical>
-      <Menu.Item>
-        <Link to="/blog">Blog</Link>
-      </Menu.Item>
-    </Responsive>
   </>
 );
