@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'gatsby';
-import { Grid, Header } from 'semantic-ui-react';
+import { Grid, Header, Segment } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 import { Image } from '../components/Image';
@@ -13,9 +13,10 @@ const BlackText = styled.span`
   color: rgb(0, 0, 0, 0.87);
 `;
 
-const CalloutContent = styled.div`
+const CalloutContent = styled(Segment)`
   padding: 0 1.45rem;
   text-align: center;
+  background-color: rgb(223, 223, 243, 0.45) !important;
 
   .gatsby-image-wrapper {
     margin: 0 auto;

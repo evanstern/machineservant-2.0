@@ -47,6 +47,9 @@ export const Header: React.FunctionComponent<IProps> = ({ siteTitle = '' }) => (
           <Menu.Item>
             <Link to="/blog">Blog</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/contact/">Contact</Link>
+          </Menu.Item>
         </Responsive>
       </StyledMenu>
     </StyledHeader>

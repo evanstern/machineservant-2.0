@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import 'semantic-ui-less/semantic.less';
 
 import { Background } from './Background';
+import { Footer } from './Footer';
 import { Header } from './Header';
 import { Image } from './Image';
 
@@ -52,10 +53,7 @@ export const Layout: React.FunctionComponent<IProps> = ({
       <Header siteTitle={data.site.siteMetadata.title} />
       <Content>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with{' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </Content>
     </Background>
   );
