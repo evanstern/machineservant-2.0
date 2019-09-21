@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
-import { Grid, Header, Icon, Segment } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
 
 import { Layout } from '../components/Layout';
 import { MainBlurb } from '../components/MainBlurb';
 import { Posts } from '../components/Posts';
-import { SEO } from '../components/SEO';
-import { TagList } from '../components/TagList';
 
 interface IEdges {
   node: {
@@ -18,7 +16,6 @@ interface IEdges {
     frontmatter: {
       date: string;
       title: string;
-      tags: string[];
       featuredImage: {
         childImageSharp: {
           fluid: FluidObject;
@@ -35,62 +32,53 @@ interface IProps {
       edges: IEdges[];
     };
   };
+  pageContext: {
+    tag: string;
+  };
 }
 
-const Blog: React.FC<IProps> = ({ data }) => {
+const TaggedPosts: React.FC<IProps> = ({ pageContext, data }) => {
+  const { tag } = pageContext;
   const posts = data.allMarkdownRemark.edges;
-
   return (
     <Layout>
-      <SEO title="Blog" />
       <MainBlurb imageName="gears-transparent.png">
-        <Header as="h1">Blog</Header>
-        <Header as="h2">News from MachineServant and technical musings.</Header>
+        <Header as="h1">
+          Posts tagged with <samp>#{tag}</samp>
+        </Header>
       </MainBlurb>
-      <Grid container stackable>
-        <Grid.Row columns={2}>
-          <Grid.Column width={12}>
-            <Posts posts={posts} />
-          </Grid.Column>
-          <Grid.Column width={4}>
-            <Header as="h3">
-              <Icon name="tags" /> Tags
-            </Header>
-            <TagList />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Posts posts={posts} />
     </Layout>
   );
 };
 
-export default Blog;
+export default TaggedPosts;
 
 export const pageQuery = graphql`
-  query {
+  query($tag: String) {
     allMarkdownRemark(
-      filter: { frontmatter: { published: { eq: true } } }
       limit: 2000
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] }, published: { eq: true } } }
     ) {
+      totalCount
       edges {
         node {
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tags
+            date
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
+                fluid {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
+            title
           }
-          excerpt(pruneLength: 160)
+          excerpt
         }
       }
     }

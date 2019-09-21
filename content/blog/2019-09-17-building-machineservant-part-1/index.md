@@ -2,6 +2,8 @@
 date: "2019-09-17"
 title: "Building MachineServant Part 1"
 featuredImage: ./gatsby.png
+tags: ["MachineServant", "Web Development", "GatsbyJS"]
+published: true
 ---
 
 # MachineServant is built using GatsbyJS and hosted on Netlify

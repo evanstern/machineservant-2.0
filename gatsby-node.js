@@ -6,6 +6,7 @@
 
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const _ = require('lodash');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -23,9 +24,12 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const BlogPost = path.resolve(`src/templates/BlogPost.tsx`);
+  const TaggedPosts = path.resolve(`src/templates/TaggedPosts.tsx`);
+
   const result = await graphql(`
     {
-      allMarkdownRemark(
+      postsRemark: allMarkdownRemark(
+        filter: { frontmatter: { published: { eq: true } } }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
@@ -41,6 +45,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+      tagsGroup: allMarkdownRemark(
+        limit: 2000
+        filter: { frontmatter: { published: { eq: true } } }
+      ) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `);
 
@@ -49,7 +61,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.postsRemark.edges.forEach(({ node }) => {
     const { slug } = node.fields;
     const path = `/blog${slug}`;
     createPage({
@@ -59,6 +71,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
 
     console.log(`Created Blog Post: ${path}`);
+  });
+
+  result.data.tagsGroup.group.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: TaggedPosts,
+      context: {
+        tag: tag.fieldValue,
+      },
+    });
   });
 };
 
