@@ -28,12 +28,6 @@ const StyledMenu = styled(Menu)`
   padding: 0 !important;
 `;
 
-const StyledSubMenu = styled(StyledMenu)`
-  margin: 0 !important;
-  width: 100% !important;
-  border-radius: 0px !important;
-`;
-
 export const Header: React.FunctionComponent<IProps> = ({ siteTitle = '' }) => (
   <>
     <StyledHeader>

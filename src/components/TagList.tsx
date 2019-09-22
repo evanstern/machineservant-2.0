@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import { kebabCase } from 'lodash';
-import { Label } from 'semantic-ui-react';
+import { graphql, useStaticQuery } from 'gatsby';
+
+import { Tag } from './Tag';
 
 interface ITagGroup {
   tag: string;
@@ -31,10 +31,11 @@ export const TagList: React.FC = () => {
     <div>
       {data.allMarkdownRemark.group.map(group => {
         return (
-          <Label key={group.tag} as={Link} to={`/tags/${kebabCase(group.tag)}`}>
-            #{group.tag}
-            <Label.Detail>({group.totalCount})</Label.Detail>
-          </Label>
+          <Tag
+            key={group.tag}
+            value={group.tag}
+            detail={`(${group.totalCount})`}
+          />
         );
       })}
     </div>

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Button, Container, Form, Grid, Header } from 'semantic-ui-react';
+import { Button, Container, Form, Header } from 'semantic-ui-react';
 
-import { Image } from '../components/Image';
 import { Layout } from '../components/Layout';
 import { MainBlurb } from '../components/MainBlurb';
 import { SEO } from '../components/SEO';

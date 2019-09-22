@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
-import { Grid, Header, Icon, Segment } from 'semantic-ui-react';
+import { Grid, Header, Icon } from 'semantic-ui-react';
 
 import { Layout } from '../components/Layout';
 import { MainBlurb } from '../components/MainBlurb';

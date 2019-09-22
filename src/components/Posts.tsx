@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
-import { kebabCase } from 'lodash';
-import { Grid, Header, Label, Segment } from 'semantic-ui-react';
+import { Grid, Header, Segment } from 'semantic-ui-react';
 import styled from 'styled-components';
+
+import { Tag } from './Tag';
 
 interface IEdges {
   node: {
@@ -60,15 +61,7 @@ export const Posts: React.FC<IProps> = ({ posts }) => {
                 <Grid.Column width={16}>
                   {tags &&
                     tags.map(tag => {
-                      return (
-                        <Label
-                          key={tag}
-                          as={Link}
-                          to={`/tags/${kebabCase(tag)}`}
-                        >
-                          #{tag}
-                        </Label>
-                      );
+                      return <Tag key={tag} value={tag} />;
                     })}
                 </Grid.Column>
               </Grid.Row>

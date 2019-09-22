@@ -2,11 +2,12 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
-import { Container, Grid, Header } from 'semantic-ui-react';
+import { Container, Grid, Header, Icon, Segment } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 import { Layout } from '../components/Layout';
 import { MainBlurb } from '../components/MainBlurb';
+import { Tag } from '../components/Tag';
 
 const BlogPostContainer = styled(Container)`
   margin: 1.0875rem 0;
@@ -16,11 +17,16 @@ const BlogPostContainer = styled(Container)`
   }
 `;
 
+const BlogPostContent = styled(Segment)`
+  background: rgb(255, 255, 255, 0.5) !important;
+`;
+
 interface IProps {
   data: {
     markdownRemark: {
       frontmatter: {
         title: string;
+        tags: string[];
         date: string;
         featuredImage: {
           childImageSharp: {
@@ -38,28 +44,32 @@ const BlogPost: React.FC<IProps> = ({
     markdownRemark: { html, frontmatter },
   },
 }) => {
+  const { tags, featuredImage, title, date } = frontmatter;
   return (
     <Layout>
       <MainBlurb>
         <Grid container stackable>
           <Grid.Row columns={3}>
             <Grid.Column>
-              <Img fluid={frontmatter.featuredImage.childImageSharp.fluid} />
+              <Img fluid={featuredImage.childImageSharp.fluid} />
             </Grid.Column>
             <Grid.Column width={10} verticalAlign="middle" textAlign="center">
-              <Header as="h1">{frontmatter.title}</Header>
-              <Header as="h2">{frontmatter.date}</Header>
+              <Header as="h1">{title}</Header>
+              <Header as="h2">{date}</Header>
             </Grid.Column>
           </Grid.Row>
         </Grid>
       </MainBlurb>
       <BlogPostContainer>
-        <div className="blog-post">
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </div>
+        <BlogPostContent>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <hr />
+          <Icon name="tags" />
+          {tags &&
+            tags.map(tag => {
+              return <Tag key={tag} value={tag} />;
+            })}
+        </BlogPostContent>
       </BlogPostContainer>
     </Layout>
   );
