@@ -63,14 +63,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   result.data.postsRemark.edges.forEach(({ node }) => {
     const { slug } = node.fields;
-    const path = `/blog${slug}`;
+    const blogPath = `/blog${slug}`;
     createPage({
-      path,
+      path: blogPath,
       component: BlogPost,
       context: { slug },
     });
 
-    console.log(`Created Blog Post: ${path}`);
+    console.log(`Created Blog Post: ${blogPath}`);
   });
 
   result.data.tagsGroup.group.forEach(tag => {

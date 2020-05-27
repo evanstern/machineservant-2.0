@@ -6,7 +6,7 @@ import { Layout } from '../components/Layout';
 import { MainBlurb } from '../components/MainBlurb';
 import { SEO } from '../components/SEO';
 
-const ContactPage: React.FC = () => {
+const Contact: React.FC = () => {
   return (
     <Layout>
       <SEO title="Contact" />
@@ -62,4 +62,4 @@ const ContactPage: React.FC = () => {
   );
 };
 
-export default ContactPage;
+export default Contact;
