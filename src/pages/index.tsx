@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'gatsby';
-import { Grid, Header, Segment } from 'semantic-ui-react';
+import { Grid, Header, HeaderContent, Segment } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 import { Image } from '../components/Image';
@@ -25,11 +25,11 @@ const CalloutContent = styled(Segment)`
   }
 `;
 
-const CalloutText = styled(Header)`
+const CalloutText: typeof HeaderContent = styled(Header)`
   font-weight: 500 !important;
 `;
 
-const CalloutLabel = styled(Header)`
+const CalloutLabel: typeof HeaderContent = styled(Header)`
   text-transform: uppercase !important;
 `;
 
