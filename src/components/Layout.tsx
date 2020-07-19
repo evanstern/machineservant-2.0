@@ -12,6 +12,8 @@ import styled from 'styled-components';
 
 import 'semantic-ui-less/semantic.less';
 
+import '../styles/index.css';
+
 import { Background } from './Background';
 import { Footer } from './Footer';
 import { Header } from './Header';
@@ -27,6 +29,7 @@ const Content = styled.div`
   max-width: 960px;
   padding: 0px 0px 1.45rem;
   padding-top: 0;
+  font-family: 'Inter', sans-serif;
 
   footer {
     padding: 1.45rem 1.0875rem;
