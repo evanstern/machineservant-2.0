@@ -1,7 +1,19 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTwitter,
+  faFacebook,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'gatsby';
-import { Grid, Header, Segment } from 'semantic-ui-react';
+import {
+  Grid,
+  Header,
+  HeaderContent,
+  Segment,
+  Button,
+} from 'semantic-ui-react';
 import styled from 'styled-components';
 
 import { Image } from '../components/Image';
@@ -25,11 +37,11 @@ const CalloutContent = styled(Segment)`
   }
 `;
 
-const CalloutText = styled(Header)`
+const CalloutText: typeof HeaderContent = styled(Header)`
   font-weight: 500 !important;
 `;
 
-const CalloutLabel = styled(Header)`
+const CalloutLabel: typeof HeaderContent = styled(Header)`
   text-transform: uppercase !important;
 `;
 
@@ -57,6 +69,12 @@ const BlankScreen = styled.div`
 
 const FlexColumn = styled(Grid.Column)`
   display: flex !important;
+`;
+
+const Icons = styled.div`
+  > a {
+    padding: 0 1rem;
+  }
 `;
 
 const IndexPage: React.FC = () => (
@@ -124,8 +142,34 @@ const IndexPage: React.FC = () => (
               Reach out to us and get a free estimate!
             </CalloutText>
             <CalloutText as="h3">
-              <Link to="/contact">Contact Us</Link>
+              <Button primary size="big" as={Link} to="/contact">
+                Contact Us
+              </Button>
             </CalloutText>
+            <hr />
+            <Icons>
+              <a
+                href="https://twitter.com/machineservant"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon icon={faTwitter} size="2x" />
+              </a>
+              <a
+                href="https://www.facebook.com/MachineServant/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon icon={faFacebook} size="2x" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/machineservant/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+              </a>
+            </Icons>
           </CalloutContent>
         </FlexColumn>
       </Grid.Row>
