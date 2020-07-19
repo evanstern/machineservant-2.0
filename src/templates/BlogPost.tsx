@@ -11,14 +11,28 @@ import { Tag } from '../components/Tag';
 
 const BlogPostContainer = styled(Container)`
   margin: 1.0875rem 0;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 5rem;
 
   p {
-    font-size: 1.3em;
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+
+  li {
+    font-size: 1.3rem;
+    padding: 1rem 0;
   }
 `;
 
 const BlogPostContent = styled(Segment)`
   background: rgb(255, 255, 255, 0.5) !important;
+`;
+
+const InnerContent = styled.div`
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 `;
 
 interface IProps {
@@ -62,7 +76,7 @@ const BlogPost: React.FC<IProps> = ({
       </MainBlurb>
       <BlogPostContainer>
         <BlogPostContent>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <InnerContent dangerouslySetInnerHTML={{ __html: html }} />
           <hr />
           <Icon name="tags" />
           {tags &&
