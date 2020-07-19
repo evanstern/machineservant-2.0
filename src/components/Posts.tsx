@@ -51,7 +51,7 @@ export const Posts: React.FC<IProps> = ({ posts }) => {
                 </Grid.Column>
                 <Grid.Column width={12} verticalAlign="middle">
                   <Header as="h2">
-                    <Link to={`/blog/${slug}`}>{title}</Link>
+                    <Link to={`/blog${slug}`}>{title}</Link>
                   </Header>
                   <p>{date}</p>
                   <p>{excerpt}</p>
