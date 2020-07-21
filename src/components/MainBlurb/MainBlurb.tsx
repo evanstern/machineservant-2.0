@@ -1,43 +1,25 @@
 import React from 'react';
 
 import { Grid } from 'semantic-ui-react';
-import styled from 'styled-components';
 
-import { Image } from './Image';
+import { Image } from '../Image';
 
-const Main = styled.div`
-  display: flex;
-  background-color: rgb(190, 190, 193, 0.5);
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-bottom: 1.45rem;
+import { Content } from './styles';
 
-  .inner-blurb {
-    margin: 0 auto;
-    padding: 1.45rem 1.0875rem;
-    width: 100%;
-    max-width: 960px;
-  }
-
-  .header {
-    color: rgb(70, 70, 70, 0.87);
-  }
-`;
-
-interface IProps {
+interface IMainBlurb {
   className?: string;
   children: React.ReactNode;
   imageName?: string;
 }
 
-export const MainBlurb: React.FC<IProps> = ({
+export const MainBlurb: React.FC<IMainBlurb> = ({
   className,
   children,
   imageName,
 }) => {
   if (imageName) {
     return (
-      <Main className={className}>
+      <Content className={className}>
         <div className="inner-blurb">
           <Grid container stackable>
             <Grid.Row columns={2}>
@@ -50,13 +32,13 @@ export const MainBlurb: React.FC<IProps> = ({
             </Grid.Row>
           </Grid>
         </div>
-      </Main>
+      </Content>
     );
   }
 
   return (
-    <Main className={className}>
+    <Content className={className}>
       <div className="inner-blurb">{children}</div>
-    </Main>
+    </Content>
   );
 };

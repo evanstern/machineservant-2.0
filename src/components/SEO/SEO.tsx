@@ -10,14 +10,14 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Helmet from 'react-helmet';
 
-interface IProps {
+interface ISEO {
   description?: string;
   lang?: string;
   meta?: any[];
   title: string;
 }
 
-export const SEO: React.FC<IProps> = ({
+export const SEO: React.FC<ISEO> = ({
   description = '',
   lang = 'en',
   meta = [],

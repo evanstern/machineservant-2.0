@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
-import { Grid, Header, Segment } from 'semantic-ui-react';
-import styled from 'styled-components';
+import { Grid, Header } from 'semantic-ui-react';
 
-import { Tag } from './Tag';
+import { Tag } from '../Tag';
+
+import { BlogPostPreview } from './styles';
 
 interface IEdges {
   node: {
@@ -26,15 +27,11 @@ interface IEdges {
   };
 }
 
-interface IProps {
+interface IPosts {
   posts: IEdges[];
 }
 
-const BlogPostPreview = styled(Segment)`
-  background-color: rgb(255, 255, 255, 0.7) !important;
-`;
-
-export const Posts: React.FC<IProps> = ({ posts }) => {
+export const Posts: React.FC<IPosts> = ({ posts }) => {
   return (
     <>
       {posts.map(({ node }) => {
@@ -51,6 +48,7 @@ export const Posts: React.FC<IProps> = ({ posts }) => {
                 </Grid.Column>
                 <Grid.Column width={12} verticalAlign="middle">
                   <Header as="h2">
+                    {' '}
                     <Link to={`/blog${slug}`}>{title}</Link>
                   </Header>
                   <p>{date}</p>

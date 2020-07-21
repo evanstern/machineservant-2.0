@@ -2,7 +2,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { Tag } from './Tag';
+import { Tag } from '../Tag';
 
 interface ITagGroup {
   tag: string;

@@ -1,15 +1,15 @@
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
-import styled from 'styled-components';
 
-interface IProps {
+import { Content } from './styles';
+
+interface IBackground {
   className?: string;
   children: React.ReactNode;
 }
 
-const BackgroundSection: React.FC<IProps> = ({ className, children }) => {
+export const Background: React.FC<IBackground> = ({ className, children }) => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "background.png" }) {
@@ -24,22 +24,13 @@ const BackgroundSection: React.FC<IProps> = ({ className, children }) => {
   `);
 
   return (
-    <BackgroundImage
+    <Content
       Tag="div"
       className={className}
       fluid={data.file.childImageSharp.fluid}
       backgroundColor={'#e6e6e6'}
     >
       {children}
-    </BackgroundImage>
+    </Content>
   );
 };
-
-export const Background = styled(BackgroundSection)`
-  width: 100%;
-  min-height: 100vh;
-
-  background-position: bottom center;
-  background-repeat: repeat-y;
-  background-size: cover;
-`;

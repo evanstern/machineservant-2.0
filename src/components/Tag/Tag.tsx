@@ -4,12 +4,12 @@ import { Link } from 'gatsby';
 import { kebabCase } from 'lodash';
 import { Label } from 'semantic-ui-react';
 
-interface IProps {
+interface ITag {
   value: string;
   detail?: string;
 }
 
-export const Tag: React.FC<IProps> = ({ value, detail }) => {
+export const Tag: React.FC<ITag> = ({ value, detail }) => {
   return (
     <Label as={Link} to={`/tags/${kebabCase(value)}`}>
       #{value}

@@ -4,9 +4,9 @@ import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 import { Header } from 'semantic-ui-react';
 
-import { Layout } from '../components/Layout';
-import { MainBlurb } from '../components/MainBlurb';
-import { Posts } from '../components/Posts';
+import { Layout } from '../../components/Layout';
+import { MainBlurb } from '../../components/MainBlurb';
+import { Posts } from '../../components/Posts';
 
 interface IEdges {
   node: {

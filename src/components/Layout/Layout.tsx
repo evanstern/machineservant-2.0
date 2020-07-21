@@ -8,35 +8,23 @@
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import styled from 'styled-components';
+
+import { Background } from '../Background';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
+import { Image } from '../Image';
+
+import { Content } from './styles';
 
 import 'semantic-ui-less/semantic.less';
+import './styles.css';
 
-import '../styles/index.css';
-
-import { Background } from './Background';
-import { Footer } from './Footer';
-import { Header } from './Header';
-import { Image } from './Image';
-
-interface IProps {
+interface ILayout {
   showHeaderImage?: boolean;
   children: React.ReactNode;
 }
 
-const Content = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 0px 1.45rem;
-  padding-top: 0;
-  font-family: 'Inter', sans-serif;
-
-  footer {
-    padding: 1.45rem 1.0875rem;
-  }
-`;
-
-export const Layout: React.FunctionComponent<IProps> = ({
+export const Layout: React.FunctionComponent<ILayout> = ({
   showHeaderImage = false,
   children,
 }) => {

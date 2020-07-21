@@ -3,7 +3,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 
-interface IProps {
+interface IImage {
   name: string;
 }
 
@@ -30,7 +30,7 @@ interface IAllImageSharp {
   };
 }
 
-export const Image: React.FC<IProps> = ({ name }) => {
+export const Image: React.FC<IImage> = ({ name }) => {
   const data: IAllImageSharp = useStaticQuery(graphql`
     query {
       allImageSharp {
