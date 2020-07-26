@@ -36,7 +36,6 @@ module.exports = {
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-eslint`,
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-less`,
     `gatsby-background-image`,

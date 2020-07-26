@@ -13,7 +13,6 @@
         "variable-name": [true, "allow-leading-underscore", "allow-pascal-case"],
         "jsx-no-lambda": [false],
         "react-hooks-nesting": "error",
-        "object-literal-sort-keys": false,
-        "no-submodule-imports": [true, "semantic-ui-less/semantic.less"]
+        "object-literal-sort-keys": false
     }
 }

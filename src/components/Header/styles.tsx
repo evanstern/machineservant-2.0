@@ -1,8 +1,6 @@
 import tw from 'twin.macro';
 import styled from '@emotion/styled';
 
-import { Menu } from 'semantic-ui-react';
-
 export const Content = styled.header`
   ${tw`p-6 bg-gray-900`};
 `;
@@ -26,11 +24,4 @@ export const SiteLinks = styled.div`
   a {
     ${tw`block mt-4 lg:inline-block hover:text-white lg:mt-0`};
   }
-`;
-
-export const HeaderMenu = styled(Menu)`
-  padding: 1.45rem 1.0875rem;
-  max-width: 960px;
-  margin: 0 auto !important;
-  padding: 0 !important;
 `;
