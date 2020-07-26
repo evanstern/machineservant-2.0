@@ -1,13 +1,12 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 
 export const Content = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 0px 1.45rem;
-  padding-top: 0;
+  ${tw`container pt-0 pb-6 mx-auto`}
+
   font-family: 'Inter', sans-serif;
 
   footer {
-    padding: 1.45rem 1.0875rem;
+    ${tw`px-4 py-6`};
   }
 `;

@@ -1,29 +1,52 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 
-import { Container, Segment } from 'semantic-ui-react';
+export const BlogPostContainer = styled.div`
+  ${tw`text-xl text-gray-800`};
 
-export const BlogPostContainer = styled(Container)`
-  margin: 1.0875rem 0;
   font-family: 'Inter', sans-serif;
-  padding-bottom: 5rem;
 
-  p {
-    font-size: 1.3rem;
-    line-height: 2rem;
+  h1 {
+    ${tw`mb-6 text-4xl font-bold text-center underline`};
   }
 
-  li {
-    font-size: 1.3rem;
-    padding: 1rem 0;
+  h2 {
+    ${tw`mb-6 text-3xl font-bold`};
+  }
+
+  h3 {
+    ${tw`mb-4 text-2xl font-bold`};
+  }
+
+  h4 {
+    ${tw`mb-4 text-xl font-bold`};
+  }
+
+  h5 {
+    ${tw`mb-4 text-lg font-bold`};
+  }
+
+  h6 {
+    ${tw`mb-4 font-bold`};
+  }
+
+  p {
+    ${tw`my-4 leading-relaxed`};
+  }
+
+  ul {
+    ${tw`pl-5 mb-4 list-disc`}
+
+    > li {
+      ${tw`mb-4`}
+    }
   }
 `;
 
-export const BlogPostContent = styled(Segment)`
-  background: rgb(255, 255, 255, 0.5) !important;
+export const BlogPostContent = styled.div`
+  ${tw`py-4 bg-white bg-opacity-75 rounded shadow`};
 `;
 
 export const InnerContent = styled.div`
-  padding-bottom: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  ${tw`px-4 mb-2 sm:px-6`}
 `;

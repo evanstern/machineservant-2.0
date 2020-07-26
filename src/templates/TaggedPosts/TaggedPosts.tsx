@@ -2,7 +2,6 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
-import { Header } from 'semantic-ui-react';
 
 import { Layout } from '../../components/Layout';
 import { MainBlurb } from '../../components/MainBlurb';
@@ -26,7 +25,7 @@ interface IEdges {
   };
 }
 
-interface IProps {
+interface ITaggedPosts {
   data: {
     allMarkdownRemark: {
       edges: IEdges[];
@@ -37,16 +36,15 @@ interface IProps {
   };
 }
 
-const TaggedPosts: React.FC<IProps> = ({ pageContext, data }) => {
+const TaggedPosts: React.FC<ITaggedPosts> = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <MainBlurb imageName="gears-transparent.png">
-        <Header as="h1">
-          Posts tagged with <samp>#{tag}</samp>
-        </Header>
-      </MainBlurb>
+      <MainBlurb
+        image="gears-transparent.png"
+        header={`Posts tagged with #${tag}`}
+      />
       <Posts posts={posts} />
     </Layout>
   );

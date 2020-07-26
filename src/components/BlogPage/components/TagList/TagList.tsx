@@ -2,7 +2,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { Tag } from '../Tag';
+import { Tag } from '../../../Tag';
 
 interface ITagGroup {
   tag: string;
@@ -28,7 +28,7 @@ export const TagList: React.FC = () => {
   `);
 
   return (
-    <div>
+    <>
       {data.allMarkdownRemark.group.map(group => {
         return (
           <Tag
@@ -38,6 +38,6 @@ export const TagList: React.FC = () => {
           />
         );
       })}
-    </div>
+    </>
   );
 };

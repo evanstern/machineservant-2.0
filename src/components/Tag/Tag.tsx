@@ -2,18 +2,22 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 import { kebabCase } from 'lodash';
-import { Label } from 'semantic-ui-react';
+
+import { Label, Detail } from './styles';
 
 interface ITag {
   value: string;
   detail?: string;
+  className?: string;
 }
 
-export const Tag: React.FC<ITag> = ({ value, detail }) => {
+export const Tag: React.FC<ITag> = ({ value, detail, className }) => {
   return (
-    <Label as={Link} to={`/tags/${kebabCase(value)}`}>
-      #{value}
-      {detail && <Label.Detail>{detail}</Label.Detail>}
-    </Label>
+    <Link to={`/tags/${kebabCase(value)}`}>
+      <Label className={className}>
+        #{value}
+        {detail && <Detail>{detail}</Detail>}
+      </Label>
+    </Link>
   );
 };

@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTags } from '@fortawesome/free-solid-svg-icons';
 import { graphql } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
-import { Grid, Header, Icon } from 'semantic-ui-react';
 
 import { Layout } from '../../components/Layout';
 import { MainBlurb } from '../../components/MainBlurb';
@@ -36,30 +37,27 @@ const BlogPost: React.FC<IBlogPost> = ({
   const { tags, featuredImage, title, date } = frontmatter;
   return (
     <Layout>
-      <MainBlurb>
-        <Grid container stackable>
-          <Grid.Row columns={3}>
-            <Grid.Column>
-              <Img fluid={featuredImage.childImageSharp.fluid} />
-            </Grid.Column>
-            <Grid.Column width={10} verticalAlign="middle" textAlign="center">
-              <Header as="h1">{title}</Header>
-              <Header as="h2">{date}</Header>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </MainBlurb>
+      <MainBlurb
+        image={<Img fluid={featuredImage.childImageSharp.fluid} />}
+        header={title}
+        subHeader={date}
+      />
       <BlogPostContainer>
         <BlogPostContent>
           <InnerContent dangerouslySetInnerHTML={{ __html: html }} />
-          <hr />
-          <Icon name="tags" />
+        </BlogPostContent>
+      </BlogPostContainer>
+      <div className="flex flex-col my-6">
+        <span className="p-6 text-2xl font-bold text-gray-800">
+          <FontAwesomeIcon icon={faTags} /> Tagged as
+        </span>
+        <div>
           {tags &&
             tags.map(tag => {
               return <Tag key={tag} value={tag} />;
             })}
-        </BlogPostContent>
-      </BlogPostContainer>
+        </div>
+      </div>
     </Layout>
   );
 };

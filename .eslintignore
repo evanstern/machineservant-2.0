@@ -3,3 +3,5 @@ gatsby-node.js
 gatsby-ssr.js
 gatsby-browser.js
 prettier.config.js
+tailwind.config.js
+stylelint.config.js

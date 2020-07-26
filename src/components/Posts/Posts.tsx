@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
-import { Grid, Header } from 'semantic-ui-react';
 
 import { Tag } from '../Tag';
 
@@ -41,29 +40,32 @@ export const Posts: React.FC<IPosts> = ({ posts }) => {
 
         return (
           <BlogPostPreview key={slug}>
-            <Grid container stackable>
-              <Grid.Row columns={2}>
-                <Grid.Column width={4}>
-                  <Img fluid={featuredImage.childImageSharp.fluid} />
-                </Grid.Column>
-                <Grid.Column width={12} verticalAlign="middle">
-                  <Header as="h2">
-                    {' '}
-                    <Link to={`/blog${slug}`}>{title}</Link>
-                  </Header>
-                  <p>{date}</p>
-                  <p>{excerpt}</p>
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row>
-                <Grid.Column width={16}>
-                  {tags &&
-                    tags.map(tag => {
-                      return <Tag key={tag} value={tag} />;
-                    })}
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
+            <Link to={`/blog${slug}`}>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+                <div className="col-span-4 sm:col-span-1">
+                  <div className="w-64 mx-auto mb-6 sm:w-auto">
+                    <Img fluid={featuredImage.childImageSharp.fluid} />
+                  </div>
+                </div>
+                <div className="col-span-4 align-middle sm:col-span-3">
+                  <div className="flex items-center w-full h-full px-4 -mt-2">
+                    <div className="mb-6">
+                      <h2 className="text-2xl font-bold text-gray-800">
+                        {title}
+                      </h2>
+                      <p className="mb-2 text-sm text-gray-600">{date}</p>
+                      <p className="text-lg text-gray-700">{excerpt}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+            <div>
+              {tags &&
+                tags.map(tag => {
+                  return <Tag key={tag} value={tag} />;
+                })}
+            </div>
           </BlogPostPreview>
         );
       })}

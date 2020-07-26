@@ -1,20 +1,28 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 
 export const Content = styled.div`
-  display: flex;
-  background-color: rgb(190, 190, 193, 0.5);
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-bottom: 1.45rem;
+  ${tw`flex w-screen mb-10 bg-gray-500 bg-opacity-50`};
 
-  .inner-blurb {
-    margin: 0 auto;
-    padding: 1.45rem 1.0875rem;
-    width: 100%;
-    max-width: 960px;
-  }
+  margin-left: calc(-50vw + 50%);
 
   .header {
-    color: rgb(70, 70, 70, 0.87);
+    ${tw`text-gray-700 text-opacity-75`};
   }
+`;
+
+export const Inner = styled.div`
+  ${tw`container w-full px-4 py-5 m-auto`};
+`;
+
+export const Grid = styled.div`
+  ${tw`grid grid-cols-1 gap-4 lg:grid-cols-3`};
+`;
+
+export const ImageCell = styled.div`
+  ${tw`lg:col-span-1`};
+`;
+
+export const ContentCell = styled.div`
+  ${tw`flex items-center justify-center lg:col-span-2`};
 `;

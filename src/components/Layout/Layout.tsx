@@ -16,7 +16,6 @@ import { Image } from '../Image';
 
 import { Content } from './styles';
 
-import 'semantic-ui-less/semantic.less';
 import './styles.css';
 
 interface ILayout {
@@ -44,8 +43,8 @@ export const Layout: React.FunctionComponent<ILayout> = ({
       <Header siteTitle={data.site.siteMetadata.title} />
       <Content>
         <main>{children}</main>
-        <Footer />
       </Content>
+      <Footer />
     </Background>
   );
 };
