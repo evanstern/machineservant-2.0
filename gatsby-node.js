@@ -8,23 +8,10 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const _ = require('lodash');
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        '../../theme.config$': path.join(
-          __dirname,
-          'src/semantic/theme.config'
-        ),
-      },
-    },
-  });
-};
-
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const BlogPost = path.resolve(`src/templates/BlogPost.tsx`);
-  const TaggedPosts = path.resolve(`src/templates/TaggedPosts.tsx`);
+  const BlogPost = path.resolve(`src/templates/BlogPost/BlogPost.tsx`);
+  const TaggedPosts = path.resolve(`src/templates/TaggedPosts/TaggedPosts.tsx`);
 
   const result = await graphql(`
     {

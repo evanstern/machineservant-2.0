@@ -36,7 +36,7 @@ module.exports = {
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-eslint`,
-    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-less`,
     `gatsby-background-image`,
     {
@@ -59,6 +59,12 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-148378802-1',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`tailwindcss`)],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
