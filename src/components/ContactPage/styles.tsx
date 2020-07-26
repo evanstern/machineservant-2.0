@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import tw from 'twin.macro';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Content = styled.div`
   ${tw`w-full px-4 xl:px-0`}
