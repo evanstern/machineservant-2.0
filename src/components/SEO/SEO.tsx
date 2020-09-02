@@ -31,6 +31,8 @@ export const SEO: React.FC<ISEO> = ({
             title
             description
             author
+            image
+            site_url
           }
         }
       }
@@ -62,6 +64,10 @@ export const SEO: React.FC<ISEO> = ({
         {
           property: 'og:type',
           content: 'website',
+        },
+        {
+          name: 'og:image',
+          content: `${site.siteMetadata.site_url}${site.siteMetadata.image}`,
         },
         {
           name: 'twitter:card',

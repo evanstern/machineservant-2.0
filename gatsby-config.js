@@ -3,6 +3,8 @@ module.exports = {
     title: `MachineServant`,
     description: `Make the machines work for you! Let us help you build your next web site or application.`,
     author: `@suriansg`,
+    site_url: `https://www.machineservant.com`,
+    image: `/images/machineservant.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -31,7 +33,7 @@ module.exports = {
         background_color: `#c8c8c8`,
         theme_color: `#c8c8c8`,
         display: `minimal-ui`,
-        icon: `content/images/machineservant-logo.png`, // This path is relative to the root of the site.
+        icon: `content/images/machineservant-logo.png`,
       },
     },
     `gatsby-plugin-typescript`,
