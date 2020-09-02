@@ -78,9 +78,9 @@ export const ContactPage: React.FC = () => {
             </ContactRow>
             <ContactRow>
               <div className="w-full">
-                <p className="text-lg leading-10">
+                <div className="text-lg leading-10">
                   <SocialLinks />
-                </p>
+                </div>
               </div>
             </ContactRow>
           </Content>

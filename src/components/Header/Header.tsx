@@ -20,7 +20,12 @@ export const Header: React.FunctionComponent<IHeader> = ({
           <Link className="mr-4" to="/blog">
             Blog
           </Link>
-          <Link to="/contact/">Contact</Link>
+          <Link className="mr-4" to="/contact/">
+            Contact
+          </Link>
+          <Link className="mr-4" to="/about">
+            About Us
+          </Link>
         </div>
       </SiteLinks>
     </Inner>
