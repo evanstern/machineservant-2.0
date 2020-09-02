@@ -37,6 +37,14 @@ export const MainPage: React.FC = () => (
           team of experts will work with you one on one to bring your vision to
           reality.
         </h3>
+        <br />
+        <p className="text-lg">
+          Learn more{' '}
+          <Link className="text-blue-600" to="/about">
+            About us
+          </Link>
+          .
+        </p>
       </Callout>
       <Callout imageName="contact.png" headerText="Sound good?">
         <h3 className="text-lg">Reach out to us and get a free estimate!</h3>
