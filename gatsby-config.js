@@ -4,7 +4,7 @@ module.exports = {
     description: `Make the machines work for you! Let us help you build your next web site or application.`,
     author: `@suriansg`,
     site_url: `https://www.machineservant.com`,
-    image: `/images/machineservant.png`,
+    image: `/images/machineservant.jpg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
