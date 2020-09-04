@@ -88,6 +88,9 @@ export const ContactPage: React.FC = () => {
         </div>
       </div>
       <div>
+        <h3 className="mt-10 text-2xl font-bold text-center">
+          Or, schedule a consulation
+        </h3>
         <CalendlyEmbed account="machineservant" eventName="30min" />
       </div>
     </Layout>

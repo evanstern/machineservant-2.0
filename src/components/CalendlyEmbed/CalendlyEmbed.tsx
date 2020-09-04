@@ -34,7 +34,7 @@ export const CalendlyEmbed: React.FC<ICalendlyEmbed> = ({
     <div
       className="calendly-inline-widget"
       data-url={calendlyUrl}
-      style={{ minWidth: '300px', height: '640px' }}
+      style={{ minWidth: '300px', height: '650px' }}
     />
   );
 };
