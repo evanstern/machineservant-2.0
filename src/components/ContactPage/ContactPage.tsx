@@ -4,6 +4,7 @@ import { Layout } from '../Layout';
 import { MainBlurb } from '../MainBlurb';
 import { SEO } from '../SEO';
 import { SocialLinks } from '../SocialLinks';
+import { CalendlyEmbed } from '../CalendlyEmbed';
 
 import {
   Content,
@@ -85,6 +86,9 @@ export const ContactPage: React.FC = () => {
             </ContactRow>
           </Content>
         </div>
+      </div>
+      <div>
+        <CalendlyEmbed account="machineservant" eventName="30min" />
       </div>
     </Layout>
   );
