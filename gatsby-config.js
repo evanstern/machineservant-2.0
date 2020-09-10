@@ -4,6 +4,7 @@ module.exports = {
     description: `Make the machines work for you! Let us help you build your next web site or application.`,
     author: `@suriansg`,
     site_url: `https://www.machineservant.com`,
+    siteUrl: `https://www.machineservant.com`, // for gatsby-plugin-sitemap
     image: `/images/machineservant.jpg`,
   },
   plugins: [
@@ -77,6 +78,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
