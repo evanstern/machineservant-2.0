@@ -8,6 +8,7 @@ import Img, { FluidObject } from 'gatsby-image';
 import { Layout } from '../../components/Layout';
 import { MainBlurb } from '../../components/MainBlurb';
 import { Tag } from '../../components/Tag';
+import { SEO } from '../../components/SEO';
 
 import { BlogPostContainer, BlogPostContent, InnerContent } from './styles';
 
@@ -37,6 +38,7 @@ const BlogPost: React.FC<IBlogPost> = ({
   const { tags, featuredImage, title, date } = frontmatter;
   return (
     <Layout>
+      <SEO title={title} />
       <MainBlurb
         image={<Img fluid={featuredImage.childImageSharp.fluid} />}
         header={title}
