@@ -50,3 +50,7 @@ export const BlogPostContent = styled.div`
 export const InnerContent = styled.div`
   ${tw`px-4 mb-2 sm:px-6`}
 `;
+
+export const Pre = styled.pre`
+  ${tw`p-4 overflow-x-scroll border border-gray-400 shadow-lg`};
+`;
