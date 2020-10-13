@@ -1,16 +1,23 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTags } from '@fortawesome/free-solid-svg-icons';
 import { graphql } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
+import RehypeReact from 'rehype-react';
 
 import { Layout } from '../../components/Layout';
 import { MainBlurb } from '../../components/MainBlurb';
 import { Tag } from '../../components/Tag';
 import { SEO } from '../../components/SEO';
 
-import { BlogPostContainer, BlogPostContent, InnerContent } from './styles';
+import {
+  BlogPostContainer,
+  BlogPostContent,
+  InnerContent,
+  Pre,
+} from './styles';
 
 interface IBlogPost {
   data: {
@@ -25,17 +32,22 @@ interface IBlogPost {
           };
         };
       };
-      html: string;
+      htmlAst: any;
     };
   };
 }
 
-const BlogPost: React.FC<IBlogPost> = ({
-  data: {
-    markdownRemark: { html, frontmatter },
+// @ts-ignore
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: {
+    // @ts-ignore
+    pre: Pre,
   },
-}) => {
-  const { tags, featuredImage, title, date } = frontmatter;
+}).Compiler;
+
+const BlogPost: React.FC<IBlogPost> = ({ data: { markdownRemark: post } }) => {
+  const { tags, featuredImage, title, date } = post.frontmatter;
   return (
     <Layout>
       <SEO title={title} />
@@ -46,7 +58,7 @@ const BlogPost: React.FC<IBlogPost> = ({
       />
       <BlogPostContainer>
         <BlogPostContent>
-          <InnerContent dangerouslySetInnerHTML={{ __html: html }} />
+          <InnerContent>{renderAst(post.htmlAst)}</InnerContent>
         </BlogPostContent>
       </BlogPostContainer>
       <div className="flex flex-col my-6">
@@ -69,7 +81,7 @@ export default BlogPost;
 export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+      htmlAst
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
