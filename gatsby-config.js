@@ -2,10 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `MachineServant`,
     description: `Make the machines work for you! Let us help you build your next web site or application.`,
-    author: `@suriansg`,
+    author: `@machsInnervate`,
     site_url: `https://www.machineservant.com`,
     siteUrl: `https://www.machineservant.com`, // for gatsby-plugin-sitemap
     image: `/images/machineservant.jpg`,
+    contact: `contact@machineservant.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

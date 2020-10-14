@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { graphql, useStaticQuery } from 'gatsby';
+
 import { Layout } from '../Layout';
 import { MainBlurb } from '../MainBlurb';
 import { SEO } from '../SEO';
@@ -16,7 +18,25 @@ import {
   ContactRow,
 } from './styles';
 
+type ContactPageQueryProps = {
+  site: {
+    siteMetadata: {
+      contact: string;
+    };
+  };
+};
+
 export const ContactPage: React.FC = () => {
+  const data = useStaticQuery<ContactPageQueryProps>(graphql`
+    query ContactPageQuery {
+      site {
+        siteMetadata {
+          contact
+        }
+      }
+    }
+  `);
+
   return (
     <Layout>
       <SEO title="Contact" />
@@ -71,8 +91,13 @@ export const ContactPage: React.FC = () => {
             <ContactRow>
               <div className="w-full">
                 <p className="text-sm leading-10">
-                  <a href="mailto:evanstern@machineservant.com">
-                    evanstern@machineservant.com
+                  <a
+                    className="underline lg:text-lg"
+                    rel="noreferrer"
+                    target="_blank"
+                    href={`mailto:${data.site.siteMetadata.contact}`}
+                  >
+                    {data.site.siteMetadata.contact}
                   </a>
                 </p>
               </div>
