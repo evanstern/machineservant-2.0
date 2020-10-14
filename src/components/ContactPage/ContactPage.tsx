@@ -39,7 +39,10 @@ export const ContactPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="Contact" />
+      <SEO
+        title="Contact"
+        description="Please contact us by filling out the form below and we will respond as quickly as we can."
+      />
       <MainBlurb
         image="contact.png"
         header="We would love to hear from you!"

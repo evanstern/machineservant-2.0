@@ -43,7 +43,10 @@ export const BlogPage: React.FC<IBlogPage> = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO
+        title="Blog"
+        description="News from MachineServant and technical musings."
+      />
       <MainBlurb
         image="gears-transparent.png"
         header="Blog"

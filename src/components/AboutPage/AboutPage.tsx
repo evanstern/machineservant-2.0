@@ -101,7 +101,7 @@ export const AboutPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO title="About" description="Your vision, our solutions." />
       <MainBlurb
         image="gears.png"
         header="About MachineServant"

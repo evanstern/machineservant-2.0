@@ -3,10 +3,9 @@ date: "2019-09-23"
 title: "Publishing Posts with Remark"
 featuredImage: ./gatsby.png
 tags: ["MachineServant", "Web Development", "GatsbyJS", "Remark"]
+keywords: ["GatsbyJS", "RemarkJS", "Blog", "Post", "Publish", "Draft"]
 published: true 
 ---
-
-# `Remark` front matter
 
 At the time of writing this post, MachineServant uses
 [Remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/) for
