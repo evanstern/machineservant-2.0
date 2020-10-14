@@ -6,5 +6,5 @@ export const Content = styled.div`
 `;
 
 export const Heading = styled.h2`
-  ${tw`ml-2 text-2xl font-bold text-gray-800 md:m-auto md:max-w-lg`};
+  ${tw`ml-2 text-2xl font-bold text-gray-800 md:m-auto md:max-w-lg md:px-4 lg:max-w-none`};
 `;

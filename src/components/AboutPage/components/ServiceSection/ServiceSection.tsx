@@ -19,6 +19,8 @@ export const ServiceSection: React.FC<IServiceSection> = ({
     <Heading>
       <FontAwesomeIcon className="mr-4" icon={icon} /> {heading}
     </Heading>
-    <div className="mx-2 text-lg md:max-w-lg md:m-auto">{children}</div>
+    <div className="mx-2 text-lg md:max-w-lg md:m-auto md:px-4 lg:max-w-none">
+      {children}
+    </div>
   </Content>
 );
