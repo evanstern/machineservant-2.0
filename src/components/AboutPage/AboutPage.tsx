@@ -28,7 +28,7 @@ import Css3Logo from './assets/css3-seeklogo.com.svg';
 import JavaScriptLogo from './assets/javascript-seeklogo.com.svg';
 import TypeScriptLogo from './assets/typescript-seeklogo.com.svg';
 import SassLogo from './assets/sass-seeklogo.com.svg';
-import PostgresqlLogo from './assets/postgresql-seeklogo.com.svg';
+import PostgresqlLogo from './assets/PostgreSQL_logo.3colors.svg';
 import MongoLogo from './assets/mongodb-seeklogo.com.svg';
 import TailwindLogo from './assets/tailwind-css-seeklogo.com.svg';
 import BootstrapLogo from './assets/bootstrap-seeklogo.com.svg';
