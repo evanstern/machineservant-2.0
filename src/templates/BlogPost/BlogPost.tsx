@@ -31,8 +31,19 @@ interface IBlogPost {
             fluid: FluidObject;
           };
         };
+        featured: {
+          childImageSharp: {
+            resize: {
+              src: string;
+              width: number;
+              height: number;
+            };
+          };
+        };
+        keywords: string[];
       };
       htmlAst: any;
+      excerpt: string;
     };
   };
 }
@@ -47,10 +58,23 @@ const renderAst = new RehypeReact({
 }).Compiler;
 
 const BlogPost: React.FC<IBlogPost> = ({ data: { markdownRemark: post } }) => {
-  const { tags, featuredImage, title, date } = post.frontmatter;
+  const {
+    tags,
+    featuredImage,
+    featured,
+    title,
+    date,
+    keywords,
+  } = post.frontmatter;
+
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO
+        title={title}
+        description={post.excerpt.replaceAll('\n', ' ')}
+        keywords={keywords}
+        image={featured.childImageSharp.resize}
+      />
       <MainBlurb
         image={<Img fluid={featuredImage.childImageSharp.fluid} />}
         header={title}
@@ -82,6 +106,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       htmlAst
+      excerpt(pruneLength: 160)
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
@@ -93,6 +118,16 @@ export const pageQuery = graphql`
             }
           }
         }
+        featured: featuredImage {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              width
+              height
+            }
+          }
+        }
+        keywords
       }
     }
   }

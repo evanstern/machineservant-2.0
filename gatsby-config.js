@@ -7,6 +7,17 @@ module.exports = {
     siteUrl: `https://www.machineservant.com`, // for gatsby-plugin-sitemap
     image: `/images/machineservant.jpg`,
     contact: `contact@machineservant.com`,
+    keywords: [
+      'MachineServant',
+      'Machine Servant',
+      'Software Development',
+      'Website Development',
+      'Software Shop',
+      'Development Agency',
+      'Akron',
+      'Cleveland',
+      'Ohio',
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

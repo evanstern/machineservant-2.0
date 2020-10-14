@@ -15,6 +15,12 @@ interface ISEO {
   lang?: string;
   meta?: any[];
   title: string;
+  keywords?: string[];
+  image?: {
+    src: string;
+    width: number;
+    height: number;
+  }
 }
 
 export const SEO: React.FC<ISEO> = ({
@@ -22,6 +28,8 @@ export const SEO: React.FC<ISEO> = ({
   lang = 'en',
   meta = [],
   title,
+  keywords = [],
+  image: metaImage,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -33,6 +41,7 @@ export const SEO: React.FC<ISEO> = ({
             author
             image
             site_url
+            keywords
           }
         }
       }
@@ -40,6 +49,8 @@ export const SEO: React.FC<ISEO> = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const metaKeywords = keywords && keywords.length ? keywords : site.siteMetadata.keywords;
+  const image = metaImage && metaImage.src ? `${site.siteMetadata.site_url}${metaImage.src}` : null;
 
   return (
     <Helmet
@@ -66,14 +77,6 @@ export const SEO: React.FC<ISEO> = ({
           content: 'website',
         },
         {
-          name: 'og:image',
-          content: `${site.siteMetadata.site_url}${site.siteMetadata.image}`,
-        },
-        {
-          name: 'twitter:card',
-          content: 'summary',
-        },
-        {
           name: 'twitter:creator',
           content: site.siteMetadata.author,
         },
@@ -85,7 +88,39 @@ export const SEO: React.FC<ISEO> = ({
           name: 'twitter:description',
           content: metaDescription,
         },
-      ].concat(meta)}
+        {
+          name: 'keywords',
+          content: metaKeywords.join(','),
+        },
+      ].concat(
+        metaImage ? [
+          {
+            property: 'og:image',
+            content: image,
+          },
+          {
+            property: 'og:image:width',
+            content: metaImage?.width,
+          },
+          {
+            property: 'og:image:height',
+            content: metaImage?.height,
+          },
+          {
+            name: 'twitter:card',
+            content: 'summary_large_image',
+          },
+        ] : [
+          {
+            property: 'og:image',
+            content: `${site.siteMetadata.site_url}${site.siteMetadata.image}`,
+          },
+          {
+            name: 'twitter:card',
+            content: 'summary',
+          },
+        ]
+      ).concat(meta)}
     />
   );
 };

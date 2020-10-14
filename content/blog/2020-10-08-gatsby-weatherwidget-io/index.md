@@ -3,10 +3,9 @@ date: "2020-10-08"
 title: "GatsbyJS and weatherwidget.io"
 featuredImage: ./weatherwidgetio.jpg
 tags: ["MachineServant", "Web Development", "GatsbyJS", "3rdParty"]
+keywords: ["Gatsby", "GatsbyJS", "weatherwidget", "Weather Widget", "weatherwidget.io"]
 published: true
 ---
-
-# GatsbyJS and weatherwidget.io
 
 Embedded assets can be a pain sometimes. A lot of the time, the embed code
 you are given just doesn't work out of the box. This is doubly true with
