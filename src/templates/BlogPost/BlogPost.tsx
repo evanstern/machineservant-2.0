@@ -71,7 +71,7 @@ const BlogPost: React.FC<IBlogPost> = ({ data: { markdownRemark: post } }) => {
     <Layout>
       <SEO
         title={title}
-        description={post.excerpt.replaceAll('\n', ' ')}
+        description={post.excerpt.replace(/\\n/g, ' ')}
         keywords={keywords}
         image={featured.childImageSharp.resize}
       />
