@@ -1,6 +1,7 @@
 ---
 date: "2020-07-18"
 title: "How to Bring a Project to Life"
+author: "Evan Stern"
 featuredImage: ./schedule-planning-startup-launching-7376.jpg
 tags: ["MachineServant", "Web Development", "Project Management"]
 keywords: ["MachineServant", "Website", "Development", "Software Agency", "Project Management"]
