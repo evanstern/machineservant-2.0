@@ -12,11 +12,21 @@ import { MainBlurb } from '../../components/MainBlurb';
 import { Tag } from '../../components/Tag';
 import { SEO } from '../../components/SEO';
 
+import { Link } from './components/Link';
 import {
   BlogPostContainer,
   BlogPostContent,
   InnerContent,
   Pre,
+  Header1,
+  Header2,
+  Header3,
+  Header4,
+  Header5,
+  Header6,
+  Paragraph,
+  UnorderedList,
+  OrderedList,
 } from './styles';
 
 interface IBlogPost {
@@ -24,6 +34,7 @@ interface IBlogPost {
     markdownRemark: {
       frontmatter: {
         title: string;
+        author: string;
         tags: string[];
         date: string;
         featuredImage: {
@@ -54,12 +65,33 @@ const renderAst = new RehypeReact({
   components: {
     // @ts-ignore
     pre: Pre,
+    // @ts-ignore
+    a: Link,
+    // @ts-ignore
+    h1: Header1,
+    // @ts-ignore
+    h2: Header2,
+    // @ts-ignore
+    h3: Header3,
+    // @ts-ignore
+    h4: Header4,
+    // @ts-ignore
+    h5: Header5,
+    // @ts-ignore
+    h6: Header6,
+    // @ts-ignore
+    p: Paragraph,
+    // @ts-ignore
+    ul: UnorderedList,
+    // @ts-ignore
+    ol: OrderedList,
   },
 }).Compiler;
 
 const BlogPost: React.FC<IBlogPost> = ({ data: { markdownRemark: post } }) => {
   const {
     tags,
+    author,
     featuredImage,
     featured,
     title,
@@ -78,7 +110,7 @@ const BlogPost: React.FC<IBlogPost> = ({ data: { markdownRemark: post } }) => {
       <MainBlurb
         image={<Img fluid={featuredImage.childImageSharp.fluid} />}
         header={title}
-        subHeader={date}
+        subHeader={`By ${author} on ${date}`}
       />
       <BlogPostContainer>
         <BlogPostContent>
@@ -110,6 +142,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        author
         tags
         featuredImage {
           childImageSharp {
